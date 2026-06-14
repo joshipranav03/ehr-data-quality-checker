@@ -13,8 +13,7 @@ EHR/EMR patient datasets exported as CSV files. Built using only **Python** and
 
 ## 👤 About the Author
 
-Built by **PJ (Pranav Joshi)**, a healthcare operations professional and
-Computer Science student at University of the People. PJ has 8+ years of direct
+Built by Pranav Joshi, a healthcare operations professional. I have 8+ years of direct
 experience working with **PointClickCare**, **AxisCare**, and clinical scheduling
 systems at facilities including Zara HomeCare LLC, Brookdale Senior Living, and
 Maryville Memory Care.
@@ -226,4 +225,4 @@ to change. All contributions must include updated tests.
 
 ---
 
-*Built with ❤️ from 8+ years in healthcare operations — because clean data saves lives.*
+*Built with ❤️ from 8+ years in healthcare operations because clean data saves lives.*
