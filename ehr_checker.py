@@ -13,7 +13,7 @@ import sys
 import os
 
 
-# âââ CONFIG ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+# Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ CONFIG Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
 
 REQUIRED_COLUMNS = [
     "patient_id", "first_name", "last_name", "date_of_birth",
@@ -22,10 +22,10 @@ REQUIRED_COLUMNS = [
 ]
 
 VALID_GENDERS = {"M", "F", "Male", "Female", "Non-binary", "Unknown"}
-ICD10_PATTERN = r"^[A-Z][0-9]{2}(\\.[0-9A-Z]{1,4})?$"
+ICD10_PATTERN = r"^[A-Z][0-9]{2}(\.[0-9A-Z]{1,4})?$"
 
 
-# âââ GENERATOR: sample dataset âââââââââââââââââââââââââââââââââââââââââââââââ
+# Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ GENERATOR: sample dataset Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
 
 def generate_sample_data(n=50):
     """Create a realistic EHR dataset with intentional data quality issues."""
@@ -86,7 +86,7 @@ def generate_sample_data(n=50):
     return pd.DataFrame(records)
 
 
-# âââ CHECKS ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+# Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ CHECKS Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
 
 def check_missing_fields(df):
     issues = []
@@ -207,12 +207,12 @@ def check_medication_dosage(df):
                 "check": "incomplete_medication_record",
                 "column": col,
                 "affected_rows": len(empty),
-                "details": f"{col} is missing â medication safety risk"
+                "details": f"{col} is missing Ã¢ÂÂ medication safety risk"
             })
     return issues
 
 
-# âââ RUNNER ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+# Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ RUNNER Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
 
 def run_checks(df):
     all_issues = []
@@ -232,28 +232,28 @@ def score_quality(df, issues):
     return score
 
 
-# âââ REPORT ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+# Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ REPORT Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
 
 def print_report(df, issues, score):
     width = 72
-    sep   = "â" * width
+    sep   = "Ã¢ÂÂ" * width
 
     print(f"\
-{'â'*width}")
+{'Ã¢ÂÂ'*width}")
     print(f"  EHR DATA QUALITY REPORT".center(width))
     print(f"  Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}".center(width))
-    print(f"{'â'*width}")
+    print(f"{'Ã¢ÂÂ'*width}")
 
     print(f"\
-  Dataset:  {df.shape[0]} rows Ã {df.shape[1]} columns")
+  Dataset:  {df.shape[0]} rows ÃÂ {df.shape[1]} columns")
     print(f"  Issues:   {len(issues)} found")
     print(f"  Quality Score: {score}%")
-    print(f"  Rating: {'â PASS' if score >= 90 else 'â ï¸  WARNING' if score >= 70 else 'â FAIL'}")
+    print(f"  Rating: {'Ã¢ÂÂ PASS' if score >= 90 else 'Ã¢ÂÂ Ã¯Â¸Â  WARNING' if score >= 70 else 'Ã¢ÂÂ FAIL'}")
     print(f"\
 {sep}")
 
     if not issues:
-        print("  â No data quality issues found. Dataset is clean.")
+        print("  Ã¢ÂÂ No data quality issues found. Dataset is clean.")
     else:
         print(f"  {'CHECK':<30} {'COLUMN':<22} {'ROWS':>5}  DETAILS")
         print(sep)
@@ -275,16 +275,16 @@ def save_report(df, issues, score, path="ehr_quality_report.csv"):
         report_df["quality_score"] = score
         report_df["checked_at"]    = datetime.now().isoformat()
         report_df.to_csv(path, index=False)
-        print(f"  ð Report saved â {path}")
+        print(f"  Ã°ÂÂÂ Report saved Ã¢ÂÂ {path}")
     else:
-        print("  â No issues to export.")
+        print("  Ã¢ÂÂ No issues to export.")
 
 
-# âââ CLI âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+# Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ CLI Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
 
 def main():
     parser = argparse.ArgumentParser(
-        description="EHR Data Quality Checker â validates CSV EHR/EMR exports"
+        description="EHR Data Quality Checker Ã¢ÂÂ validates CSV EHR/EMR exports"
     )
     parser.add_argument(
         "--input", "-i",
@@ -306,19 +306,19 @@ def main():
     if args.generate_sample:
         sample = generate_sample_data()
         sample.to_csv("sample_ehr_data.csv", index=False)
-        print("â Sample EHR data saved â sample_ehr_data.csv")
+        print("Ã¢ÂÂ Sample EHR data saved Ã¢ÂÂ sample_ehr_data.csv")
         return
 
     if args.input:
         if not os.path.exists(args.input):
-            print(f"â File not found: {args.input}")
+            print(f"Ã¢ÂÂ File not found: {args.input}")
             sys.exit(1)
         df = pd.read_csv(args.input)
         print(f"\
-ð Loaded: {args.input}")
+Ã°ÂÂÂ Loaded: {args.input}")
     else:
         print("\
-ð¬ No input file specified. Running on built-in sample data...")
+Ã°ÂÂÂ¬ No input file specified. Running on built-in sample data...")
         df = generate_sample_data()
 
     issues = run_checks(df)
