@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EHR Data Quality Checker</title>
+  <meta name="description" content="Validate Electronic Health Record data for completeness, validity, uniqueness, consistency, and referential integrity." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🏥</text></svg>" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">✚</span>
+        <div>
+          <h1>EHR Data Quality Checker</h1>
+          <p class="tagline">Validate clinical data extracts across five quality dimensions</p>
+        </div>
+      </div>
+      <nav class="topnav">
+        <a href="/docs" target="_blank" rel="noopener">API docs</a>
+        <a href="/redoc" target="_blank" rel="noopener">ReDoc</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Control panel -->
+    <section class="panel" aria-label="Run a check">
+      <div class="tabs" role="tablist">
+        <button class="tab is-active" data-tab="sample" role="tab">Try sample data</button>
+        <button class="tab" data-tab="upload" role="tab">Upload a CSV</button>
+        <button class="tab" data-tab="interop" role="tab">FHIR / HL7</button>
+        <button class="tab" data-tab="history" role="tab">History &amp; trends</button>
+      </div>
+
+      <!-- Sample mode -->
+      <div class="tabpane" data-pane="sample">
+        <div class="controls">
+          <label class="field">
+            <span>Dataset</span>
+            <select id="sample-dataset"></select>
+          </label>
+          <label class="field">
+            <span>Variant</span>
+            <select id="sample-variant">
+              <option value="dirty">Dirty (has injected defects)</option>
+              <option value="clean">Clean (source data)</option>
+            </select>
+          </label>
+          <div class="field field-actions">
+            <span>&nbsp;</span>
+            <div class="btn-row">
+              <button id="run-sample" class="btn btn-primary">Check table</button>
+              <button id="run-audit" class="btn">Audit full database</button>
+            </div>
+          </div>
+        </div>
+        <p class="hint">Sample data is a synthetic hospital dataset (no real PHI). The dirty
+          variant has intentional defects so you can see every check in action.</p>
+      </div>
+
+      <!-- Upload mode -->
+      <div class="tabpane is-hidden" data-pane="upload">
+        <div class="controls">
+          <label class="field field-grow">
+            <span>CSV file</span>
+            <input type="file" id="upload-file" accept=".csv,text/csv" />
+          </label>
+          <label class="field">
+            <span>Dataset</span>
+            <select id="upload-dataset">
+              <option value="">Auto-detect</option>
+            </select>
+          </label>
+          <div class="field field-actions">
+            <span>&nbsp;</span>
+            <button id="run-upload" class="btn btn-primary">Run check</button>
+          </div>
+        </div>
+        <p class="hint">One table per file. Foreign-key checks need parent tables, so they
+          are skipped for single-file uploads — use the sample audit to see them run.</p>
+      </div>
+
+      <!-- FHIR / HL7 mode -->
+      <div class="tabpane is-hidden" data-pane="interop">
+        <div class="controls">
+          <label class="field field-grow">
+            <span>FHIR bundle (.json) or HL7 v2 (.hl7)</span>
+            <input type="file" id="interop-file" accept=".json,.hl7,.txt,application/json,text/plain" />
+          </label>
+          <label class="field">
+            <span>Format</span>
+            <select id="interop-format">
+              <option value="fhir">FHIR R4 Bundle</option>
+              <option value="hl7">HL7 v2 ADT</option>
+            </select>
+          </label>
+          <div class="field field-actions">
+            <span>&nbsp;</span>
+            <button id="run-interop" class="btn btn-primary">Ingest &amp; check</button>
+          </div>
+        </div>
+        <p class="hint">Resources/segments are mapped to the table model, given surrogate
+          integer keys, and audited together — cross-table integrity included. Try the bundled
+          <code>sample_data/fhir/sample_bundle.json</code> or
+          <code>sample_data/hl7/sample_adt.hl7</code>.</p>
+      </div>
+
+      <!-- History mode -->
+      <div class="tabpane is-hidden" data-pane="history">
+        <div class="controls">
+          <label class="field">
+            <span>Dataset</span>
+            <select id="history-dataset"></select>
+          </label>
+          <div class="field field-actions">
+            <span>&nbsp;</span>
+            <div class="btn-row">
+              <button id="run-history" class="btn btn-primary">View trends</button>
+              <button id="refresh-history" class="btn">Refresh</button>
+            </div>
+          </div>
+        </div>
+        <p class="hint">Every check is recorded — <strong>summary only, never patient data</strong>.
+          Run a few checks, then watch a dataset's quality score trend over time.</p>
+      </div>
+    </section>
+
+    <!-- Status / errors -->
+    <div id="status" class="status is-hidden" role="status"></div>
+
+    <!-- Results -->
+    <section id="report" class="report is-hidden" aria-live="polite"></section>
+    <section id="audit" class="audit is-hidden" aria-live="polite"></section>
+
+    <!-- Empty state -->
+    <section id="empty" class="empty">
+      <div class="empty-icon" aria-hidden="true">🩺</div>
+      <h2>No report yet</h2>
+      <p>Pick a sample dataset and press <strong>Check table</strong>, or upload your own CSV.</p>
+    </section>
+  </main>
+
+  <footer class="wrap site-footer">
+    <span>EHR Data Quality Checker</span>
+    <span>·</span>
+    <span>FastAPI + pandas</span>
+    <span>·</span>
+    <a href="/api/health" target="_blank" rel="noopener">health</a>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,792 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:org-0001",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-0001",
+        "name": "Boston General"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:pract-0001",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-0001",
+        "name": [
+          {
+            "family": "House",
+            "given": [
+              "Gregory"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:patient-0001",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-0001",
+        "meta": {
+          "lastUpdated": "2024-01-15T10:00:00-05:00"
+        },
+        "name": [
+          {
+            "use": "official",
+            "given": [
+              "Aaron"
+            ],
+            "family": "Sanford"
+          }
+        ],
+        "gender": "male",
+        "address": [
+          {
+            "city": "Boston",
+            "state": "MA",
+            "postalCode": "02118"
+          }
+        ],
+        "birthDate": "1968-04-12"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:patient-0002",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-0002",
+        "meta": {
+          "lastUpdated": "2024-01-15T10:00:00-05:00"
+        },
+        "name": [
+          {
+            "use": "official",
+            "given": [
+              "Brenda"
+            ],
+            "family": "Cole"
+          }
+        ],
+        "gender": "unknown",
+        "address": [
+          {
+            "city": "Boston",
+            "state": "MA",
+            "postalCode": "02118"
+          }
+        ],
+        "birthDate": "1985-09-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:patient-0003",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-0003",
+        "meta": {
+          "lastUpdated": "2024-01-15T10:00:00-05:00"
+        },
+        "name": [
+          {
+            "use": "official",
+            "given": [
+              "Carlos"
+            ],
+            "family": "Diaz"
+          }
+        ],
+        "gender": "male",
+        "address": [
+          {
+            "city": "Boston",
+            "state": "MA",
+            "postalCode": "02118"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-0001",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-0001",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB"
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-0001"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "urn:uuid:pract-0001",
+              "display": "Dr. Gregory House"
+            }
+          }
+        ],
+        "period": {
+          "start": "2024-03-10T09:00:00-05:00",
+          "end": "2024-03-10T11:00:00-05:00"
+        },
+        "serviceProvider": {
+          "reference": "urn:uuid:org-0001",
+          "display": "Boston General"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "display": "Home"
+              }
+            ],
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-0002",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-0002",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP"
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-0002"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "urn:uuid:pract-0001",
+              "display": "Dr. Gregory House"
+            }
+          }
+        ],
+        "period": {
+          "start": "2024-04-20T08:00:00-05:00",
+          "end": "2024-04-15T08:00:00-05:00"
+        },
+        "serviceProvider": {
+          "reference": "urn:uuid:org-0001",
+          "display": "Boston General"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "display": "Home"
+              }
+            ],
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-0003",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-0003",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "EMER"
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-0003"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "urn:uuid:pract-0001",
+              "display": "Dr. Gregory House"
+            }
+          }
+        ],
+        "period": {
+          "start": "2024-05-01T22:00:00-05:00",
+          "end": "2024-05-02T03:00:00-05:00"
+        },
+        "serviceProvider": {
+          "reference": "urn:uuid:org-0001",
+          "display": "Boston General"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "display": "Home"
+              }
+            ],
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dx-0001",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "dx-0001",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "44054006",
+              "display": "Type 2 diabetes mellitus"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes mellitus"
+            }
+          ],
+          "text": "Type 2 diabetes mellitus"
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-0001"
+        },
+        "encounter": {
+          "reference": "urn:uuid:enc-0001"
+        },
+        "recordedDate": "2024-03-10"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dx-0002",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "dx-0002",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "59621000",
+              "display": "Essential hypertension"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ],
+          "text": "Essential hypertension"
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-0001"
+        },
+        "encounter": {
+          "reference": "urn:uuid:enc-0001"
+        },
+        "recordedDate": "2024-03-10"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dx-0003",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "dx-0003",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "230690007",
+              "display": "Cerebrovascular accident"
+            }
+          ],
+          "text": "Cerebrovascular accident"
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-0002"
+        },
+        "encounter": {
+          "reference": "urn:uuid:enc-0002"
+        },
+        "recordedDate": "2024-04-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dx-0004",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "dx-0004",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "195967001",
+              "display": "Asthma"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "J45.909",
+              "display": "Asthma"
+            }
+          ],
+          "text": "Asthma"
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-0003"
+        },
+        "encounter": {
+          "reference": "urn:uuid:enc-0003"
+        },
+        "recordedDate": "2024-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:proc-0001",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-0001",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "43396009",
+              "display": "Hemoglobin A1c measurement"
+            }
+          ],
+          "text": "Hemoglobin A1c measurement"
+        },
+        "encounter": {
+          "reference": "urn:uuid:enc-0001"
+        },
+        "performedPeriod": {
+          "start": "2024-03-10T09:30:00-05:00",
+          "end": "2024-03-10T09:45:00-05:00"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:med-0001",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-0001",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "860975",
+              "display": "Metformin 500 MG Oral Tablet"
+            }
+          ],
+          "text": "Metformin 500 MG Oral Tablet"
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-0001"
+        },
+        "encounter": {
+          "reference": "urn:uuid:enc-0001"
+        },
+        "dosageInstruction": [
+          {
+            "route": {
+              "coding": [
+                {
+                  "display": "Oral"
+                }
+              ],
+              "text": "Oral"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:claim-0001",
+      "resource": {
+        "resourceType": "Claim",
+        "id": "claim-0001",
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+              "code": "institutional"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "urn:uuid:patient-0001"
+        },
+        "item": [
+          {
+            "sequence": 1,
+            "encounter": [
+              {
+                "reference": "urn:uuid:enc-0001"
+              }
+            ]
+          }
+        ],
+        "total": {
+          "value": 1200.0,
+          "currency": "USD"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Claim"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:eob-0001",
+      "resource": {
+        "resourceType": "ExplanationOfBenefit",
+        "id": "eob-0001",
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "code": "institutional"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "urn:uuid:patient-0001"
+        },
+        "claim": {
+          "reference": "urn:uuid:claim-0001"
+        },
+        "contained": [
+          {
+            "resourceType": "Coverage",
+            "id": "coverage1",
+            "status": "active",
+            "payor": [
+              {
+                "display": "BlueCross BlueShield"
+              }
+            ]
+          }
+        ],
+        "insurance": [
+          {
+            "focal": true,
+            "coverage": {
+              "reference": "#coverage1"
+            }
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "encounter": [
+              {
+                "reference": "urn:uuid:enc-0001"
+              }
+            ],
+            "adjudication": [
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "code": "coinsurance"
+                    }
+                  ],
+                  "text": "coinsurance"
+                },
+                "amount": {
+                  "value": 240.0,
+                  "currency": "USD"
+                }
+              }
+            ]
+          }
+        ],
+        "total": [
+          {
+            "category": {
+              "coding": [
+                {
+                  "code": "submitted"
+                }
+              ],
+              "text": "Submitted Amount"
+            },
+            "amount": {
+              "value": 1200.0,
+              "currency": "USD"
+            }
+          }
+        ],
+        "payment": {
+          "amount": {
+            "value": 960.0,
+            "currency": "USD"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ExplanationOfBenefit"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:claim-0002",
+      "resource": {
+        "resourceType": "Claim",
+        "id": "claim-0002",
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+              "code": "institutional"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "urn:uuid:patient-0002"
+        },
+        "item": [
+          {
+            "sequence": 1,
+            "encounter": [
+              {
+                "reference": "urn:uuid:enc-0002"
+              }
+            ]
+          }
+        ],
+        "total": {
+          "value": 500.0,
+          "currency": "USD"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Claim"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:eob-0002",
+      "resource": {
+        "resourceType": "ExplanationOfBenefit",
+        "id": "eob-0002",
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "code": "institutional"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "urn:uuid:patient-0002"
+        },
+        "claim": {
+          "reference": "urn:uuid:claim-0002"
+        },
+        "contained": [
+          {
+            "resourceType": "Coverage",
+            "id": "coverage1",
+            "status": "active",
+            "payor": [
+              {
+                "display": "BlueCross BlueShield"
+              }
+            ]
+          }
+        ],
+        "insurance": [
+          {
+            "focal": true,
+            "coverage": {
+              "reference": "#coverage1"
+            }
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "encounter": [
+              {
+                "reference": "urn:uuid:enc-0002"
+              }
+            ],
+            "adjudication": [
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "code": "coinsurance"
+                    }
+                  ],
+                  "text": "coinsurance"
+                },
+                "amount": {
+                  "value": 200.0,
+                  "currency": "USD"
+                }
+              }
+            ]
+          }
+        ],
+        "total": [
+          {
+            "category": {
+              "coding": [
+                {
+                  "code": "submitted"
+                }
+              ],
+              "text": "Submitted Amount"
+            },
+            "amount": {
+              "value": 500.0,
+              "currency": "USD"
+            }
+          }
+        ],
+        "payment": {
+          "amount": {
+            "value": 9000.0,
+            "currency": "USD"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ExplanationOfBenefit"
+      }
+    }
+  ]
+}

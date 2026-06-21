@@ -1,0 +1,19 @@
+{
+  "name": "EHR Data Quality Checker",
+  "description": "Validate EHR data extracts for completeness, validity, uniqueness, consistency, and referential integrity.",
+  "repository": "https://github.com/joshipranav03/ehr-data-quality-checker",
+  "keywords": ["healthcare", "data-quality", "fastapi", "ehr", "fhir"],
+  "stack": "container",
+  "env": {
+    "EHR_HISTORY": {
+      "description": "Enable SQLite report history (needs a persistent disk).",
+      "value": "off"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}

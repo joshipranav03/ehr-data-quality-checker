@@ -1,0 +1,7 @@
+# Heroku container deploy. Run once: heroku stack:set container -a YOUR_APP
+# Heroku sets $PORT dynamically; the web process binds 0.0.0.0:$PORT.
+build:
+  docker:
+    web: Dockerfile
+run:
+  web: uvicorn app.main:app --host 0.0.0.0 --port $PORT

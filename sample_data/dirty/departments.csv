@@ -1,0 +1,13 @@
+department_id,department_name,department_type,floor
+1,Cardiology,Inpatient,2
+2,Emergency,Emergency,1
+3,Oncology,Inpatient,5
+4,Orthopedics,Inpatient,4
+5,Pediatrics,Inpatient,4
+6,Neurology,Inpatient,3
+7,General Surgery,Surgical,2
+8,Internal Medicine,Outpatient,2
+9,Obstetrics,Inpatient,7
+10,Radiology,Diagnostic,1
+11,Psychiatry,Outpatient,1
+12,Pulmonology,Inpatient,2

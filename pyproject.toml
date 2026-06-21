@@ -1,0 +1,57 @@
+[project]
+name = "ehr-data-quality-checker"
+version = "1.0.0"
+description = "Validate EHR data extracts for completeness, validity, uniqueness, consistency, and referential integrity."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Pranav Joshi" }]
+keywords = [
+    "healthcare", "ehr", "data-quality", "data-validation",
+    "fastapi", "fhir", "health-informatics", "clinical-data",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: FastAPI",
+    "Intended Audience :: Healthcare Industry",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = [
+    "fastapi>=0.111",
+    "uvicorn[standard]>=0.30",
+    "pandas>=2.2",
+    "python-multipart>=0.0.9",
+    "pydantic>=2.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.2", "httpx>=0.27", "build>=1.2"]
+
+[project.urls]
+Homepage = "https://github.com/joshipranav03/ehr-data-quality-checker"
+Repository = "https://github.com/joshipranav03/ehr-data-quality-checker"
+Documentation = "https://github.com/joshipranav03/ehr-data-quality-checker/tree/main/docs"
+Issues = "https://github.com/joshipranav03/ehr-data-quality-checker/issues"
+
+[project.scripts]
+ehr-dq = "app.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.setuptools.package-data]
+app = ["static/*"]

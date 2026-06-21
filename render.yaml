@@ -1,0 +1,17 @@
+# Render Blueprint — one-click deploy of the EHR Data Quality Checker.
+# Free Docker web service (750 instance-hours/month; spins down after 15 min idle).
+# Render injects PORT (default 10000); the Dockerfile CMD binds $PORT automatically.
+services:
+  - type: web
+    name: ehr-data-quality-checker
+    runtime: docker
+    plan: free
+    region: oregon          # oregon | ohio | virginia | frankfurt | singapore
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: EHR_HISTORY
+        value: "off"        # free instances have ephemeral disk; disable history

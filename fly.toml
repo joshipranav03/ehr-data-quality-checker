@@ -1,0 +1,35 @@
+# Fly.io config — Docker app that scales to zero when idle.
+# NOTE: Fly removed its free allowance (late 2024); this is pay-as-you-go, but
+# with min_machines_running = 0 a low-traffic demo costs near-nothing.
+# Fly does NOT inject PORT — we set it in [env] so the CMD's --port $PORT binds.
+app = "ehr-data-quality-checker"
+primary_region = "iad"      # iad | ord | lax | fra | sjc | ...
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "8080"
+  EHR_HISTORY = "off"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+  [http_service.concurrency]
+    type = "requests"
+    soft_limit = 200
+    hard_limit = 250
+
+[[http_service.checks]]
+  grace_period = "10s"
+  interval = "30s"
+  method = "GET"
+  timeout = "5s"
+  path = "/healthz"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"

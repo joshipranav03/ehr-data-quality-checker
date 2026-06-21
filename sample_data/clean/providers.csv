@@ -1,0 +1,61 @@
+provider_id,first_name,last_name,specialty,department_id,hire_date
+1,Susan,Davis,Obstetrics,9,2010-08-06
+2,Richard,Nguyen,Psychiatry,11,2022-03-23
+3,Chen,Davis,Internal Medicine,8,2016-03-28
+4,James,Chen,Oncology,3,2019-06-25
+5,Jose,Rodriguez,Oncology,3,2014-10-30
+6,Jose,Brown,Emergency,2,2018-07-10
+7,Michael,Lopez,Neurology,6,2015-12-07
+8,Robert,Kim,Internal Medicine,8,2022-01-10
+9,Linda,Okafor,General Surgery,7,2011-10-08
+10,Charles,Ali,Psychiatry,11,2018-02-10
+11,Richard,Nguyen,Emergency,2,2011-01-11
+12,Joseph,Chen,Pediatrics,5,2011-10-16
+13,Joseph,Khan,Emergency,2,2018-07-11
+14,Sarah,Anderson,Psychiatry,11,2018-03-08
+15,William,Lopez,Neurology,6,2014-09-13
+16,Sarah,Nguyen,Psychiatry,11,2011-08-08
+17,William,Moore,Pulmonology,12,2015-06-29
+18,William,Anderson,General Surgery,7,2016-01-21
+19,Joseph,Patel,Neurology,6,2011-04-04
+20,Joseph,Ali,Cardiology,1,2017-01-28
+21,Priya,Rodriguez,Emergency,2,2014-09-25
+22,Maria,Miller,Psychiatry,11,2021-03-13
+23,Priya,Singh,Psychiatry,11,2020-04-16
+24,Elizabeth,Rodriguez,Oncology,3,2015-07-14
+25,Thomas,Kim,Radiology,10,2019-08-11
+26,Priya,Lopez,Orthopedics,4,2013-02-07
+27,Carlos,Thomas,Emergency,2,2011-01-21
+28,Linda,Jones,Psychiatry,11,2013-08-03
+29,Sofia,Martin,Emergency,2,2018-08-19
+30,Mohammed,Martin,Internal Medicine,8,2021-11-13
+31,Thomas,Moore,Cardiology,1,2012-07-27
+32,Sarah,Chen,Psychiatry,11,2017-08-18
+33,Linda,Martinez,General Surgery,7,2013-07-19
+34,Olivia,Smith,Pulmonology,12,2015-11-28
+35,Carlos,Chen,Oncology,3,2021-05-21
+36,Michael,Khan,Psychiatry,11,2016-09-10
+37,Carlos,Martin,Orthopedics,4,2013-06-06
+38,Aisha,Chen,Oncology,3,2022-02-05
+39,Fatima,Okafor,Cardiology,1,2017-04-09
+40,Emma,Smith,Emergency,2,2018-02-21
+41,Karen,Davis,Cardiology,1,2015-05-28
+42,Jennifer,Williams,Pulmonology,12,2020-11-25
+43,John,Chen,Obstetrics,9,2012-10-27
+44,David,Patel,Internal Medicine,8,2022-05-01
+45,William,Rodriguez,Obstetrics,9,2019-06-29
+46,Susan,Okafor,Obstetrics,9,2014-07-06
+47,Karen,Gonzalez,Psychiatry,11,2018-05-18
+48,Liam,Singh,Obstetrics,9,2020-02-16
+49,Linda,Davis,Orthopedics,4,2011-06-09
+50,Jose,Smith,Radiology,10,2022-06-04
+51,Joseph,Jackson,Orthopedics,4,2010-02-28
+52,John,Nguyen,Psychiatry,11,2011-04-28
+53,Joseph,Williams,Cardiology,1,2017-05-30
+54,John,Taylor,Orthopedics,4,2016-03-31
+55,Emma,Miller,Obstetrics,9,2012-12-19
+56,Noah,Davis,Internal Medicine,8,2019-02-17
+57,Richard,Brown,Emergency,2,2019-09-02
+58,Wei,Wilson,General Surgery,7,2020-06-22
+59,Patricia,Patel,Psychiatry,11,2012-03-17
+60,Patricia,Gonzalez,Pulmonology,12,2017-08-11
