@@ -11,6 +11,9 @@ jobs:
   pypi:
     name: Build & publish to PyPI
     runs-on: ubuntu-latest
+    # Opt-in: set repo variable PYPI_PUBLISH=true once Trusted Publishing is
+    # configured on PyPI, so the first release doesn't fail on an unset publisher.
+    if: ${{ vars.PYPI_PUBLISH == 'true' }}
     permissions:
       id-token: write        # PyPI Trusted Publishing (no API token needed)
     steps:
